@@ -1,0 +1,8 @@
+<div>
+  <p>{{ session.dayName}}</p>
+  <p>{{session.startTime.hours}}:{{session.startTime.minutes | number:'2.0-0'}}-{{session.endTime.hours}}:{{session.endTime.minutes}}</p>
+
+  <p>{{session.day | date:'MMM d'}}</p>
+
+  <button mat-button color="primary">Book</button>
+</div>
