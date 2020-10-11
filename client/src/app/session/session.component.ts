@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Time } from '@angular/common';
 
 export class Session {
+
   day: Date;
   startTime: Time;
   endTime: Time;
@@ -43,13 +44,15 @@ export class Session {
 })
 export class SessionComponent implements OnInit {
 
-  constructor() { }
-  
-  ngOnInit(): void {
+  constructor() {
     this.session = new Session(new Date(2020, 9, 6), { hours: 18, minutes: 0 }, { hours: 19, minutes: 30 }, true);
     this.session.partnerName = "Tim";
   }
+  
+  ngOnInit(): void {
+  }
 
+  @Input()
   session: Session;
 
   clickMessage = '';

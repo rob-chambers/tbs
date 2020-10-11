@@ -1,1 +1,36 @@
-<p>schedule works!</p>
+<div class="heading">
+  {{schedule.startDate | date:'MMMM d'}} - {{schedule.endDate | date:'MMMM d'}}
+</div>
+<ul>
+  <li *ngFor="let session of schedule.sessions">
+    <div class="row">
+      <div class="col">
+        {{session.dayName}}<br />
+        {{session.startTime.hours}}:{{session.startTime.minutes | number:'2.0-0'}}-{{session.endTime.hours}}:{{session.endTime.minutes}}
+      </div>
+
+      <div class="col">
+        <p>{{session.day | date:'MMM d'}}</p>
+      </div>
+
+      <div class="col">
+        <div *ngIf="!session.isBooked">
+          <div *ngIf="session.hasTickets">
+            <button (click)="onBooking()" mat-raised-button color="primary">Book</button>
+          </div>
+
+          <div *ngIf="!session.hasTickets">
+            <p>There are no tickets left</p>
+          </div>
+        </div>
+
+        <div *ngIf="session.isBooked">
+          <p>Booked with {{session.partnerName}}</p>
+          <button (click)="cancelBooking()" mat-raised-button color="secondary">Cancel</button>
+        </div>
+
+        <p>{{clickMessage}}</p>
+      </div>
+    </div>
+  </li>
+</ul>

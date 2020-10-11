@@ -9,18 +9,20 @@
   </div>
 
   <div class="col">
-    <div *ngIf="session.isBooked; else notBookedBlock">
+    <div *ngIf="!session.isBooked">
+      <div *ngIf="session.hasTickets">
+        <button (click)="onBooking()" mat-raised-button color="primary">Book</button>
+      </div>
+
+      <div *ngIf="!session.hasTickets">
+        <p>There are no tickets left</p>
+      </div>
+    </div>
+
+    <div *ngIf="session.isBooked">
       <p>Booked with {{session.partnerName}}</p>
       <button (click)="cancelBooking()" mat-raised-button color="secondary">Cancel</button>
     </div>
-
-    <div *ngIf="session.hasTickets; else noTicketsBlock">
-      <button (click)="onBooking()" mat-raised-button color="primary">Book</button>
-    </div>
-
-    <ng-template #noTicketsBlock>
-      <p>There are no tickets left</p>
-    </ng-template>
 
     <p>{{clickMessage}}</p>
   </div>
