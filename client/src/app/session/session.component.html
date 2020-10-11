@@ -1,8 +1,27 @@
 <div>
-  <p>{{ session.dayName}}</p>
-  <p>{{session.startTime.hours}}:{{session.startTime.minutes | number:'2.0-0'}}-{{session.endTime.hours}}:{{session.endTime.minutes}}</p>
+  <div class="col">
+    {{ session.dayName}}<br/>
+    {{session.startTime.hours}}:{{session.startTime.minutes | number:'2.0-0'}}-{{session.endTime.hours}}:{{session.endTime.minutes}}
+  </div>
 
-  <p>{{session.day | date:'MMM d'}}</p>
+  <div class="col">
+    <p>{{session.day | date:'MMM d'}}</p>
+  </div>
 
-  <button class="bookingButton" mat-button color="primary">Book</button>
+  <div class="col">
+    <div *ngIf="session.isBooked; else notBookedBlock">
+      <p>Booked with {{session.partnerName}}</p>
+      <button (click)="cancelBooking()" mat-raised-button color="secondary">Cancel</button>
+    </div>
+
+    <div *ngIf="session.hasTickets; else noTicketsBlock">
+      <button (click)="onBooking()" mat-raised-button color="primary">Book</button>
+    </div>
+
+    <ng-template #noTicketsBlock>
+      <p>There are no tickets left</p>
+    </ng-template>
+
+    <p>{{clickMessage}}</p>
+  </div>
 </div>
