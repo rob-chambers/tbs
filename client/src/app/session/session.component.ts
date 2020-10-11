@@ -34,7 +34,7 @@ export class Session {
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
-  styleUrls: ['./session.component.sass']
+  styleUrls: ['./session.component.scss']
 })
 export class SessionComponent implements OnInit {
 
