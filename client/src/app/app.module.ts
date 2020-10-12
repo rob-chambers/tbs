@@ -14,6 +14,7 @@ import { SessionComponent } from './session/session.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { SessionListComponent } from './session-list/session-list.component';
 import { CommonModule } from '@angular/common';
+import { BookingsComponent } from './bookings/bookings.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
     SessionComponent,
     SessionListComponent,
     ScheduleComponent,
-    MainNavComponent
+    MainNavComponent,
+    BookingsComponent
   ],
   imports: [
     BrowserModule,
