@@ -10,4 +10,8 @@ export class Schedule {
     this.endDate = endDate;
     this.sessions = [];
   }
-} 
+
+  dates(): string {
+    return `${this.startDate.toDateString()} - ${this.endDate.toDateString()}`;
+  }
+ } 

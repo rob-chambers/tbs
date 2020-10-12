@@ -1,5 +1,5 @@
 <div class="heading">
-  {{schedule.startDate | date:'MMMM d'}} - {{schedule.endDate | date:'MMMM d'}}
+  {{schedule.dates()}}
 </div>
 <ul>
   <li *ngFor="let session of schedule.sessions">

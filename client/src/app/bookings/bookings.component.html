@@ -4,7 +4,7 @@
   <ul>
     <li *ngFor="let booking of bookings">
       <div *ngIf="booking.isFuture">
-        <p>{{ booking.schedule.startDate | date:'MMMM d' }} - {{ booking.schedule.endDate | date:'MMMM d' }}</p>
+        <p>{{ booking.schedule.dates() }}</p>
 
         <ul class="container">
           <li class="flex-item">{{ booking.session.day | date:'EEEE d MMM' }}</li>
