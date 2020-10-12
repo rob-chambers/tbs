@@ -1,4 +1,24 @@
-<div class="header">Future Schedules</div>
-{{schedule.startDate | date:'MMMM d'}} - {{schedule.endDate | date:'MMMM d'}}
+<div>
+  <p class="header">Future Schedules</p>
 
-<div class="header">Past Schedules</div>
+  <ul>
+    <li *ngFor="let booking of bookings">
+      <div *ngIf="booking.isFuture">
+        <p>{{ booking.schedule.startDate | date:'MMMM d' }} - {{ booking.schedule.endDate | date:'MMMM d' }}</p>
+
+        <ul class="container">
+          <li class="flex-item">{{ booking.session.day | date:'EEEE d MMM' }}</li>
+          <li class="flex-item">{{ booking.session.startTime.hours }}:{{ booking.session.startTime.minutes | number:'2.0-0' }}-{{ booking.session.endTime.hours }}:{{ booking.session.endTime.minutes }}</li>
+          <li class="flex-item">Booked with {{ booking.partner.firstName }}</li>
+          <li class="flex-item"><button (click)="onCancel()" mat-raised-button color="warn">Cancel</button></li>
+        </ul>
+
+        <p class="createdDate mat-small">Booking created on {{ booking.createdDate | date:'EEEE d MMM' }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <p class="header">Past Schedules</p>
+</div>
