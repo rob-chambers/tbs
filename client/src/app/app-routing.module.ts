@@ -5,10 +5,12 @@ import { SessionComponent } from './session/session.component';
 import { SessionListComponent } from './session-list/session-list.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { BookingsComponent } from './bookings/bookings.component';
+import { NewBookingComponent } from './new-booking/new-booking.component';
 
 const routes: Routes = [
   { path: '', component: BookingsComponent },
   { path: 'bookings', component: SessionComponent },
+  { path: 'new-booking', component: NewBookingComponent },
   { path: 'sessions', component: SessionListComponent },
   { path: 'schedules', component: ScheduleComponent }
 ];

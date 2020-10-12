@@ -3,4 +3,9 @@ export class Person {
   lastName: string;
   email: string;
   phone: string;
+
+  fullName(): string
+  {
+    return `${this.firstName} ${this.lastName}`; 
+  }
 }

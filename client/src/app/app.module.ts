@@ -15,6 +15,13 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { SessionListComponent } from './session-list/session-list.component';
 import { CommonModule } from '@angular/common';
 import { BookingsComponent } from './bookings/bookings.component';
+import { NewBookingComponent } from './new-booking/new-booking.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/Core'
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,8 @@ import { BookingsComponent } from './bookings/bookings.component';
     SessionListComponent,
     ScheduleComponent,
     MainNavComponent,
-    BookingsComponent
+    BookingsComponent,
+    NewBookingComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +43,18 @@ import { BookingsComponent } from './bookings/bookings.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

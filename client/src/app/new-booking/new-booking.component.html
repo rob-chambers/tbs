@@ -1,0 +1,24 @@
+<div class="example-container">
+  <h2>New booking form</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker matInput #picker></mat-datepicker>
+    <mat-error *ngIf="date.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <!--<mat-form-field>
+    <mat-label>Partner</mat-label>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let person of persons" [value]="person">
+        {{person.fullName()}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>-->
+</div>
+
+<button (click)="onConfirm()" mat-raised-button color="primary">Confirm</button>
+<button (click)="onCancel()" mat-raised-button color="accent">Cancel</button>
+
