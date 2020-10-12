@@ -20,7 +20,7 @@ export class Session {
     this.hasTickets = true;
   }
 
-  private getDayOfWeek(date: Date) {
+  private getDayOfWeek(date: Date): string {
     const weekday = new Array(7);
     weekday[0] = "Sunday";
     weekday[1] = "Monday";
@@ -31,5 +31,20 @@ export class Session {
     weekday[6] = "Saturday";
 
     return weekday[date.getDay()];
+  }
+
+  time(): string
+  {
+    return `${ this.formatTime(this.startTime) } - ${ this.formatTime(this.endTime) }`;
+  }
+
+  private formatTime(value: Time): string {
+    return `${this.formatNumber(value.hours)}:${this.formatNumber(value.minutes)}`;
+  }
+
+  private formatNumber(value: number): string {
+    return (value === 0)
+      ? "00"
+      : value.toString();
   }
 } 
