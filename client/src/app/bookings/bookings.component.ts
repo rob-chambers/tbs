@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Schedule } from '../schedule/schedule.component';
+import { Schedule } from '../models/schedule';
 
 @Component({
   selector: 'app-bookings',
@@ -8,7 +8,7 @@ import { Schedule } from '../schedule/schedule.component';
 })
 export class BookingsComponent implements OnInit {
 
-  private schedule: Schedule;
+  schedule: Schedule;
 
   constructor() {
     this.schedule = new Schedule(new Date(2020, 9, 12), new Date(2020, 9, 18));

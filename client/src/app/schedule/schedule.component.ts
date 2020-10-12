@@ -1,17 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Session } from '../session/session.component';
-
-export class Schedule {
-  startDate: Date;
-  endDate: Date;
-  sessions: Session[];
-
-  constructor(startDate: Date, endDate: Date) {
-    this.startDate = startDate;
-    this.endDate = endDate;
-    this.sessions = [];
-  }
-} 
+import { Schedule } from '../models/schedule';
+import { Session } from '../models/session';
 
 @Component({
   selector: 'app-schedule',
